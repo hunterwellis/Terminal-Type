@@ -1,26 +1,26 @@
 #include "Timer.hpp"
 
 void Timer::start(){
-  m_StartTime = std::chrono::system_clock::now();
-  m_bRunning = true;
+  StartTime = std::chrono::system_clock::now();
+  running = true;
 }
 
 void Timer::stop(){
-  m_StopTime = std::chrono::system_clock::now();
-  m_bRunning = false;
+  StopTime = std::chrono::system_clock::now();
+  running = false;
 }
 
 float Timer::milli(){
   std::chrono::time_point<std::chrono::system_clock> endTime;
 
-  if (m_bRunning == true){
+  if (running == true){
     endTime = std::chrono::system_clock::now();
   }
   else {
-    endTime = m_StopTime;
+    endTime = StopTime;
   }
   
-  return std::chrono::duration_cast<std::chrono::milliseconds>(endTime - m_StartTime).count();
+  return std::chrono::duration_cast<std::chrono::milliseconds>(endTime - StartTime).count();
 }
 
 float Timer::sec(){

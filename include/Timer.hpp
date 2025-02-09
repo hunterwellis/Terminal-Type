@@ -1,3 +1,4 @@
+#include <iostream>
 #include <chrono>
 
 class Timer{
@@ -9,7 +10,7 @@ public:
   float sec();
 
 private:
-    std::chrono::time_point<std::chrono::system_clock> m_StartTime, m_StopTime;
-    bool m_bRunning = false;
+    std::chrono::time_point<std::chrono::system_clock> StartTime, StopTime;
+    bool running = false;
 
 };
